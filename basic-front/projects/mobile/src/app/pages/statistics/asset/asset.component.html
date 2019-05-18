@@ -1,0 +1,42 @@
+<ion-list class="common-list form-list">
+    <ion-item>
+        <ion-label>选择道路</ion-label>
+        <ion-select multiple="true" cancelText="取消" okText="确定" [(ngModel)]="selectedOptions" name="selectedOptions" (ngModelChange)="refreshData()">
+            <ion-select-option *ngFor="let c of optionData[selectedSearchType]" value="{{c.key}}">{{c.value}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+</ion-list>
+<div class="scroll-area">
+    <ion-grid>
+        <ion-row class="scroll-top">
+            <ion-col>道路名称</ion-col>
+            <ion-col>灯杆数量</ion-col>
+            <ion-col>灯具数量</ion-col>
+            <ion-col>灯具总额定功率</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let data of tableData">
+            <ion-col>{{data.assetName}}</ion-col>
+            <ion-col>{{data.poleCount}}</ion-col>
+            <ion-col>{{data.lampCount}}</ion-col>
+            <ion-col>{{data.totalStandardPower}}</ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+<ion-card class="common-card">
+    <ion-card-header>
+        <ion-card-title>灯杆类型分布图</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <div echarts style="width:90%;height: 240px" [options]="poleTypeOptions"></div>
+    </ion-card-content>
+</ion-card>
+<ion-card class="common-card mb-sm">
+    <ion-card-header>
+        <ion-card-title>灯具的照明类型</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <div echarts style="width:90%;height: 240px" [options]="lapmIlluminationOptions"></div>
+    </ion-card-content>
+</ion-card>
+
+

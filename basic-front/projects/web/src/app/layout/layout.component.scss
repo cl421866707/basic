@@ -1,0 +1,342 @@
+.layout {
+    height: 100%;
+}
+
+.logo {
+    width: 170px;
+    float: left;
+
+    img {
+        height: 28px !important;
+        width: auto !important;
+        margin-top: -4px;
+    }
+}
+
+
+.content {
+    background: #fff;
+    padding: 0 20px 0 20px;
+    min-height: 280px;
+}
+
+.map-content {
+    padding: 0;
+    min-height: 280px;
+}
+
+.content-layout {
+    padding: 0 20px 20px;
+}
+
+.map-layout {
+    padding: 0;
+}
+
+.fix-sider {
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+}
+
+.nav-text {
+    font-weight: 500;
+    color: #fff;
+}
+
+.ant-menu-item-group-title {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+
+    i {
+        display: none;
+    }
+}
+
+.ant-menu-inline-collapsed {
+    i {
+        display: block;
+    }
+}
+
+.ant-layout-sider-collapsed {
+    flex: 0 0 70px !important;
+    max-width: 70px !important;
+    min-width: 70px !important;
+    width: 70px !important;
+}
+
+
+.navbar-header {
+    border-top: 1px solid #37474F;
+    padding: 0 20px;
+
+    .header-menu {
+        background: #0e91e4;
+
+        .ant-menu-item-selected,
+        .ant-menu-item-selected:hover {
+            border: 0;
+            background: #0d78c9;
+        }
+
+        .dropmenu {
+            float: right;
+            cursor: pointer;
+
+            a {
+                padding: 0 20px;
+
+                &:hover, &:active {
+                    background: #0d78c9;
+                }
+            }
+
+            &:hover, &.active {
+                background: #0d78c9;
+            }
+        }
+
+        .ant-dropdown-trigger {
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .ng-fa-icon {
+            color: #fff;
+        }
+
+        i {
+            color: #fff;
+            font-size: 18px;
+        }
+
+    }
+}
+
+/*左边菜单*/
+.sider-menu {
+    height: 100%;
+    background: #0b3850;
+    border-right: 0;
+
+    .menu-item1 {
+        img {
+            margin-right: 10px;
+            margin-left:-18px;
+        }
+    }
+
+    .menu-item2, .menu-item3 {
+        img {
+            width: 22px;
+            margin-right: 24px;
+            margin-left: -3px;
+        }
+    }
+
+    .menu-item4 {
+        img {
+            width: 33px;
+            margin-right: 19px;
+            margin-left: -9px;
+        }
+    }
+
+    .menu-item5 {
+        img {
+            width: 22px;
+            margin-right: 23px;
+            margin-left: -3px;
+        }
+    }
+
+    .menu-item6 {
+        img {
+            width: 19px;
+            margin-right: 23px;
+            margin-left: -1px;
+        }
+    }
+
+    .menu-item7 {
+        img {
+            width: 18px;
+            margin-right: 23px;
+            margin-left: -2px;
+        }
+    }
+
+    .menu-item8 {
+        img {
+            width: 20px;
+            margin-right: 25px;
+            margin-left: -5px;
+        }
+    }
+
+    .menu-item9 {
+        img {
+            width: 23px;
+            margin-right: 26px;
+            margin-left: 10px;
+        }
+    }
+
+    .menu-item10 {
+        img {
+            width: 19px;
+            margin-right: 27px;
+            margin-left: -5px;
+        }
+    }
+    /* 不可以打开的选项被选中 */
+    .ant-menu-item-selected{
+        background: #227fb1 !important;
+        span, i {
+            color: #fff;
+        }
+        &::after{
+            border-right:0 !important;
+        }
+    }
+
+    /* 可以打开的选项被选中 */
+    .ant-menu-submenu-open {
+        background: #227fb1 !important;
+
+        span, i {
+            color: #fff;
+        }
+    }
+
+    .ant-menu-item-selected {
+        background: #1d5471 !important;
+    }
+
+    /*下拉内容页间隔线*/
+    .ant-dropdown-menu-item-divider {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+/*下拉内容页*/
+:host ::ng-deep{
+    .ant-menu-submenu-inline {
+        .ant-menu {
+            background: #0c2a3c;
+        }
+
+        .ant-menu-item {
+            a {
+                color: #c2cbd1;
+                padding-left: 13px;
+            }
+        }
+    }
+    .ant-menu-submenu-inline {
+        .ant-menu-submenu-title{
+            .ant-menu-submenu-arrow{
+                right:25px;
+            }
+        }
+    }
+    .ant-menu-submenu-arrow:before,
+    .ant-menu-submenu-arrow:after {
+        background: #fff !important;
+    }
+
+    .ant-menu-item-group-title {
+        span{
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+        }
+    }
+
+    .ant-menu-inline-collapsed {
+        .ant-menu-item-group-title {
+            span{
+                width: 25px;
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-left: 12px;
+                text-align: center;
+            }
+        }
+    }
+
+    /*左边菜单上面的card*/
+    .fix-sider.ant-layout-sider-collapsed {
+        .ant-card-meta-detail {
+            display: none;
+        }
+
+        .ant-card-actions {
+            margin-left: -58px;
+        }
+    }
+
+    .menu-alarm {
+        padding: 0 20px;
+
+        .ant-badge-count {
+            box-shadow: none !important;
+            right: -3px !important;
+        }
+    }
+
+
+    .sider-card {
+        background: #0b3850;
+        border: 0;
+        display: flex;
+        align-items: center;
+
+        .ant-card-body {
+            width: 100%;
+            height: 70px;
+            padding-left: 17px;
+
+            .ant-avatar {
+                width: 36px;
+                height: 36px;
+                margin-left: -11px;
+            }
+
+            .ant-card-meta-title,
+            .ant-card-meta-description {
+                color: #fff;
+                font-size: 13px;
+                margin-bottom: 0 !important;
+            }
+
+            .ant-card-meta-description {
+                color: #c2cbd1;
+            }
+        }
+
+        .ant-card-actions {
+            width: 20%;
+            background: #0b3850;
+            border: 0;
+            margin-left: -55px;
+
+            i {
+                color: #c2cbd1;
+            }
+        }
+    }
+}
+
+
+/*右下角的固钉*/
+.affix-right {
+    position: absolute;
+    right: 21px;
+    bottom: 19px;
+    z-index: 1000;
+    button{
+        height: 46px;
+    }
+}

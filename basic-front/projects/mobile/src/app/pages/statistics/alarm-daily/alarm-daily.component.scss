@@ -1,0 +1,16 @@
+:host{
+    .scroll-area {
+        .scroll-top, ion-grid {
+            width: 1380px;
+            ion-col:nth-of-type(1){
+                max-width:160px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            ion-col{
+                max-width:80px;
+            }
+        }
+    }
+}

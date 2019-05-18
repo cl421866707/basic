@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>设备扫码</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{'qrscanner':isShow}">
+    <div [ngClass]="{'qrscanner-area':isShow}"></div>
+    <div [ngClass]="{'through-line':isShow}"></div>
+    <div class="button-bottom ion-text-center">
+        <p class="text-white">将设备二维码放入框内，即可自动扫描</p>
+        <ion-fab class="ion-justify-content-center">
+            <ion-fab-button color="primary" (click)="toggleLight()" class="icon-camera">
+                <ion-icon name="flash"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="secondary" (click)="toggleCamera()" class="icon-camera">
+                <ion-icon name="reverse-camera"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+    </div>
+</ion-content>

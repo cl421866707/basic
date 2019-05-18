@@ -1,0 +1,45 @@
+<Accordion [accordion]="true"
+           defaultActiveKey="lumin"
+           activeKey="lumin" class="common-accordion">
+    <AccordionPanel header="分组实时控制" key="lumin">
+            <ion-list *ngIf="luminCategories!=null">
+                <ion-item>
+                    <ion-label>照明分类</ion-label>
+                    <ion-select placeholder="请选择" okText="确认" cancelText="取消" [(ngModel)]="selectedCategory" (ngModelChange)="categoryChange($event)" interface="action-sheet">
+                        <ion-select-option *ngFor="let category of luminCategories" [value]="category">{{category.categoryName}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>照明分组</ion-label>
+                    <ion-select [(ngModel)]="selectedLuminType" okText="确认" cancelText="取消" interface="action-sheet">
+                        <ion-select-option *ngFor="let luminType of selectedCategory.luminTypes" [value]="luminType">{{luminType.luminName}}</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-range color="danger" pin="true" max="100" min="0" [value]="dimmingValue" [ticks]="marks"
+                               [(ngModel)]="dimmingValue" class="common-range"></ion-range>
+                </ion-item>
+                <ion-row>
+                    <ion-col size="9">
+                        <ion-button size="small" class="button-left" (click)="dimming(0)">关
+                        </ion-button>
+                        <ion-button size="small" color="secondary" class="button-left"
+                                    (click)="dimming(30)">30
+                        </ion-button>
+                        <ion-button size="small" color="secondary" class="button-left"
+                                    (click)="dimming(50)">50
+                        </ion-button>
+                        <ion-button size="small" color="secondary" class="button-left"
+                                    (click)="dimming(80)">80
+                        </ion-button>
+                        <ion-button size="small" class="button-left" (click)="dimming(100)">开
+                        </ion-button>
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-button size="small" (click)="adjustLuminance()">调光</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-list>
+    </AccordionPanel>
+</Accordion>

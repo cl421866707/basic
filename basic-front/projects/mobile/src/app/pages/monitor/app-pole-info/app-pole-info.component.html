@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="defaultHref" (click)="close()" color="secondary"></ion-back-button>
+        </ion-buttons>
+        <ion-title>灯杆信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <div *ngIf="pagination.content.length>0;else empty">
+            <ion-item-sliding *ngFor="let data of pagination.content;let i = index">
+                <ion-list class="common-list">
+                    <ion-item>
+                        <ion-label>
+                            <h5>
+                                <ion-icon name="bookmark"></ion-icon>
+                                灯杆编号：{{data.poleCode}}</h5>
+                            <h6><span>灯杆类型:{{data.poleMold?.poleType}}</span><span class="ion-justify-content-end ion-float-end">灯杆型号：{{data.poleMold?.moldName}}</span></h6>
+                            <h6></h6>
+                            <p>
+                                <span>灯具数量:{{data.lampAmount}}</span>
+                                <!--                            <span class="ion-justify-content-end ion-float-end">偏转角度:{{data.angle}}</span>-->
+                            </p>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+                <ion-item-options side="end">
+                    <ion-item-option (click)="detail(data)">详情</ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </div>
+    </ion-list>
+    <ng-template #empty>
+        <div class="empty-note">
+            <ion-note class="ion-text-center">
+                <img src="assets/svg/empty.svg"/>
+                <p>暂无数据</p>
+            </ion-note>
+        </div>
+    </ng-template>
+    <Pagination class="common-pagination" [total]="pagination.pageSize" [current]="pagination.pageIndex" [locale]="locale"></Pagination>
+</ion-content>

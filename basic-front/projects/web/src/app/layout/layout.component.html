@@ -1,0 +1,362 @@
+<nz-layout class="layout">
+    <nz-header class="navbar-header">
+        <div class="logo" style="margin:1px 6px 0 0;">
+            <img src="{{logoPath}}" onerror="javascript:this.src ='assets/images/logo_light1.png'" style="width:100%;height:46px;">
+        </div>
+        <ul nz-menu [nzMode]="'horizontal'" class="header-menu">
+            <li nz-menu-item class="ml--xs menu-items" (click)="isCollapsed = !isCollapsed">
+                <a nzTitle="主菜单" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                    <fa-icon [icon]="['fas', 'align-justify']" size="lg"></fa-icon>
+                </a>
+            </li>
+
+            <!--<li nz-menu-item class="dropmenu menu-items" nzTitle="统计分析" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                <a (click)="open()">
+                    <fa-icon icon="indent" [flip]="isCollapsed ? 'both' : ''"></fa-icon>
+                </a>
+            </li>-->
+
+            <nz-dropdown [nzTrigger]="'hover'" class="dropmenu">
+                <a nz-dropdown nzTitle="个人信息" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                    <img src="assets/images/avatar.jpg" width="30" class="mr-xs border-radius-50">
+                    {{user?.realName}}
+                    <fa-icon [icon]="['fas', 'angle-down']" size="xs" class="ml-xs"></fa-icon>
+                </a>
+                <ul nz-menu nzSelectable>
+                    <li nz-menu-item>
+                        <a routerLink="/main/profile" (click)="changeNavigation('个人信息')"><i nz-icon nzType="user" nzTheme="outline" class="mr-xs"></i>个人信息
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a routerLink="/main/profile/password" (click)="changeNavigation('个人信息','修改密码')"><i nz-icon nzType="key" nzTheme="outline" class="mr-xs"></i>修改密码
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline" class="mr-xs"></i>退出
+                        </a>
+                    </li>
+                </ul>
+            </nz-dropdown>
+
+            <nz-dropdown [nzTrigger]="'hover'" class="dropmenu" i18n-nzTitle>
+                <a nz-dropdown nzTitle="回话消息" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                    <fa-icon [icon]="['fas', 'comments']" size="lg"></fa-icon>
+                </a>
+                <ul nz-menu nzSelectable class="width-300 p-lg">
+                    <h3 class="border-bottom pb-sm" i18n>回话消息</h3>
+                    <li nz-menu-item>
+                        <a>
+                            <nz-avatar nzIcon="user" class="float-left mr-sm"></nz-avatar>
+                            <h6>张文</h6>
+                            <p i18n>最新回话消息1</p>
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <nz-avatar nzIcon="user" class="float-left mr-sm"></nz-avatar>
+                            <h6>李晓蝶</h6>
+                            <p>最新回话消息2</p>
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <nz-avatar nzIcon="user" class="float-left mr-sm"></nz-avatar>
+                            <h6>王文发</h6>
+                            <p>最新回话消息3</p>
+                        </a>
+                    </li>
+                </ul>
+            </nz-dropdown>
+
+            <nz-dropdown [nzTrigger]="'hover'" class="dropmenu">
+                <a nz-dropdown nzTitle="多主题" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                    <fa-icon [icon]="['fas', 'burn']" size="10" class="mr-xs"></fa-icon>
+                    默认
+                    <fa-icon [icon]="['fas', 'angle-down']" size="xs" class="ml-xs"></fa-icon>
+                </a>
+                <ul nz-menu nzSelectable>
+                    <li nz-menu-item>
+                        <a>
+                            <fa-icon [icon]="['fas', 'burn']" size="10" class="mr-xs"></fa-icon>
+                            红色
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <fa-icon [icon]="['fas', 'burn']" size="10" class="mr-xs"></fa-icon>
+                            黄色
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <fa-icon [icon]="['fas', 'burn']" size="10" class="mr-xs"></fa-icon>
+                            绿色
+                        </a>
+                    </li>
+                </ul>
+            </nz-dropdown>
+
+            <nz-dropdown [nzTrigger]="'hover'" class="dropmenu">
+                <a nz-dropdown nzTitle="多语言" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                    <img src="assets/images/flags/cn.png" class="mr-xs">
+                    中文
+                    <fa-icon [icon]="['fas', 'angle-down']" size="xs" class="ml-xs"></fa-icon>
+                </a>
+                <ul nz-menu nzSelectable>
+                    <li nz-menu-item>
+                        <a (click)="switchLanguage('zh_CN')">
+                            <img src="assets/images/flags/cn.png" class="mr-xs">中文
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a (click)="switchLanguage('en_US')">
+                            <img src="assets/images/flags/us.png" class="mr-xs">英语
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a (click)="switchLanguage('fr_FR')">
+                            <img src="assets/images/flags/fr.png" class="mr-xs">法语
+                        </a>
+                    </li>
+                    <!--<li nz-menu-item>
+                        <a>
+                            <img src="assets/images/flags/de.png" class="mr-xs">德语
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <img src="assets/images/flags/ht.png" class="mr-xs">俄语
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <img src="assets/images/flags/pt.png" class="mr-xs">葡萄牙语
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <img src="assets/images/flags/es.png" class="mr-xs">西班牙语
+                        </a>
+                    </li>
+                    <li nz-menu-item>
+                        <a>
+                            <img src="assets/images/flags/sa.png" class="mr-xs">阿拉伯语
+                        </a>
+                    </li>-->
+                </ul>
+            </nz-dropdown>
+
+            <li nz-menu-item class="dropmenu menu-alarm" nzTitle="报警消息" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                <nz-badge [nzCount]="5" (click)="openEvent();">
+                    <fa-icon [icon]="['fas', 'bell']" size="lg"></fa-icon>
+                </nz-badge>
+            </li>
+            <li nz-menu-item class="dropmenu menu-alarm" nzTitle="全屏" [nzMouseEnterDelay]="1" nzPlacement="bottom" nz-tooltip>
+                <nz-badge [nzCount]="5" (click)="switchFullScreen();">
+                    <fa-icon [icon]="['fas', 'bell']" size="lg"></fa-icon>
+                </nz-badge>
+            </li>
+
+        </ul>
+
+
+        <ng-template #trigger>
+            <i nz-icon type="up"></i>
+        </ng-template>
+    </nz-header>
+    <nz-layout>
+        <nz-sider [nzWidth]="250" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate"
+                  class="fix-sider">
+            <nz-card [nzActions]="[actionSetting]" class="sider-card">
+                <nz-card-meta nzTitle="{{user?.realName}}" nzDescription="{{user?.position}}"></nz-card-meta>
+            </nz-card>
+            <ng-template #actionSetting>
+                <a routerLink="/main/profile">
+                    <i nz-icon type="setting"></i>
+                </a>
+            </ng-template>
+            <ul nz-menu [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed" class="sider-menu">
+                <li nz-menu-group>
+                    <span title>运行管理</span>
+                </li>
+                <li nz-menu-item class="menu-item1">
+                    <a routerLink="/main/monitor">
+                        <img src="assets/images/svg/monitor.svg" width="50">
+                        <span class="nav-text">实时监控</span>
+                    </a>
+                </li>
+                <li nz-submenu class="menu-item2">
+                    <span title>
+                        <img src="assets/images/svg/card.svg" width="20">
+                        <span class="nav-text">资产管理</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/map-edit" (click)="changeNavigation('首页','运行管理','资产管理','地图编辑')">地图编辑</a>
+                        </li>
+                        <li nz-menu-divider></li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/region" (click)="changeNavigation('首页','运行管理','资产管理','区域管理')">区域管理</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/road" (click)="changeNavigation('首页','运行管理','资产管理','道路管理')">道路管理</a>
+                        </li>
+                        <li nz-menu-divider></li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/concent" (click)="changeNavigation('首页','运行管理','资产管理','配电柜管理')">配电柜管理</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/pole" (click)="changeNavigation('首页','运行管理','资产管理','灯杆管理')">灯杆管理</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/lamp" (click)="changeNavigation('首页','运行管理','资产管理','灯具管理')">灯具管理</a>
+                        </li>
+                        <li nz-menu-divider></li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/setting" (click)="changeNavigation('首页','运行管理','资产管理','参数配置')">参数配置</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu class="menu-item3">
+                    <span title>
+                        <img src="assets/images/svg/task.svg" width="18">
+                        <span class="nav-text">定时任务</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/maintenance/lamp" (click)="changeNavigation('首页','运行管理','定时任务','配电任务')">配电任务</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/schedule/road-schedule" (click)="changeNavigation('首页','运行管理','定时任务','道路节能任务')">道路节能任务</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/schedule/road-schedule" (click)="changeNavigation('首页','运行管理','定时任务','区域分组任务')">区域分组任务</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu class="menu-item4">
+                    <span title>
+                        <img src="assets/images/svg/database.svg" width="25">
+                        <span class="nav-text">数据查询</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/data/current" (click)="changeNavigation('首页','运行管理','数据查询','实时数据查询')">实时数据查询</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/data/freeze" (click)="changeNavigation('首页','运行管理','数据查询','曲线数据查询')">曲线数据查询</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li nz-menu-group>
+                    <span title>统计分析</span>
+                </li>
+                <li nz-submenu class="menu-item5">
+                    <span title>
+                        <img src="assets/images/svg/statistics1.svg" width="20">
+                        <span class="nav-text">资产统计</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/assets/asset" (click)="changeNavigation('首页','统计分析','资产统计','资产类别统计')">资产类别统计</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/assets/life" (click)="changeNavigation('首页','统计分析','资产统计','灯具寿命统计')">灯具寿命统计</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu class="menu-item6">
+                    <span title>
+                        <img src="assets/images/svg/statistics2.svg" width="20">
+                        <span class="nav-text">运行统计</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/run/alarmDaily" (click)="changeNavigation('首页','统计分析','运行统计','报警日统计')">报警日统计</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/run/alarmMonthly" (click)="changeNavigation('首页','统计分析','运行统计','报警月统计')">报警月统计</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/run/lightRate" (click)="changeNavigation('首页','统计分析','运行统计','亮灯率统计')">亮灯率统计</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/run/onlineRate" (click)="changeNavigation('首页','统计分析','运行统计','在线率统计')">在线率统计</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-submenu class="menu-item7">
+                    <span title>
+                        <img src="assets/images/svg/statistics3.svg" width="15">
+                        <span class="nav-text">能耗统计</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/report/energy/consume" (click)="changeNavigation('首页','统计分析','能耗统计','用电量统计')">用电量统计</a>
+                        </li>
+                    </ul>
+                </li>
+                <li nz-menu-group>
+                    <span title>系统管理</span>
+                </li>
+                <li nz-submenu class="menu-item8">
+                    <span title>
+                        <img src="assets/images/svg/eyes.svg" width="15">
+                        <span class="nav-text">用户权限</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>
+                            <a routerLink="/main/security/user" (click)="changeNavigation('首页','系统管理','用户权限','用户管理')">用户管理</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/security/role" (click)="changeNavigation('首页','系统管理','用户权限','角色管理')">角色管理</a>
+                        </li>
+                        <li nz-menu-item>
+                            <a routerLink="/main/security/dept" (click)="changeNavigation('首页','系统管理','用户权限','组织架构')">组织架构</a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li nz-submenu class="menu-item9">
+                    <span title>
+                        <img src="assets/images/svg/log.svg" width="20">
+                        <span class="nav-text">系统日志</span>
+                    </span>
+                    <ul>
+                        <li nz-menu-item>控制操作事件</li>
+                        <li nz-menu-item>灯具报警事件</li>
+                    </ul>
+                </li>-->
+                <li nz-menu-item class="menu-item10">
+
+                    <a routerLink="/main/settings" (click)="changeNavigation('首页','系统管理','系统设置','')">
+                        <span title>
+                            <img src="assets/images/svg/setting.svg" width="15">
+                            <span class="nav-text">系统设置</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nz-sider>
+        <nz-layout [ngClass]="contentLayout" [ngStyle]="{'margin-left':isCollapsed?'60px':' 240px'}">
+            <nz-breadcrumb style="margin:16px 0;" [nzAutoGenerate]="true" *ngIf="showBreadcrumb">
+                <nz-breadcrumb-item>
+                    <fa-icon [icon]="['fas', 'map-marker-alt']" size="8" class="mr-xs"></fa-icon>
+                    {{menuFirst}}
+                </nz-breadcrumb-item>
+                <nz-breadcrumb-item *ngIf="menuSecond">{{menuSecond}}</nz-breadcrumb-item>
+                <nz-breadcrumb-item *ngIf="menuThird">{{menuThird}}</nz-breadcrumb-item>
+                <nz-breadcrumb-item *ngIf="menuFourth">{{menuFourth}}</nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <nz-content [ngClass]="mainContent">
+                <router-outlet></router-outlet>
+            </nz-content>
+        </nz-layout>
+    </nz-layout>
+</nz-layout>
+
+<nz-affix nzOffsetBottom="10" class="affix-right">
+    <button nz-button [nzType]="'danger'" (click)="openEvent();">
+        <img src="assets/images/svg/event.svg" width="30">
+    </button>
+</nz-affix>

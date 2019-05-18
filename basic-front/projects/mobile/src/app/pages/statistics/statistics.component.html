@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>统计分析</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <Tabs [activeTab]="index"
+          [page]="3"
+          (onChange)="onChange($event)"
+          (onTabClick)="onTabClick($event)" [swipeable]="false">
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'灯具寿命'">
+            <div style="height: 100%; width: 100%">
+                <app-life></app-life>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; height: 100%;justify-content: center;align-items: center"
+                [title]="'资产类别'">
+            <div style="height: 100%; width: 100%">
+                <app-asset></app-asset>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'报警日统计'">
+            <div style="height: 100%; width: 100%">
+                <app-alarm-daily></app-alarm-daily>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'报警月统计'">
+            <div style="height: 100%; width: 100%">
+                <app-alarm-monthly></app-alarm-monthly>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'在线率'">
+            <div style="height: 100%; width: 100%">
+                <app-light-rate></app-light-rate>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'亮灯率'">
+            <div style="height: 100%; width: 100%">
+                <app-online-rate></app-online-rate>
+            </div>
+        </TabPane>
+    </Tabs>
+</ion-content>

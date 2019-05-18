@@ -1,0 +1,27 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "author": "web Framework",
+  "homepage": "https://webframework.com/",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "build-i18n:zh": "ng build --prod --configuration=zh --base-href ./",
+    "build-i18n:en": "ng build --prod --configuration=en --base-href ./",
+    "build-i18n": "npm run build-i18n:en ; npm run build-i18n:zh"
+  },
+  "private": true,
+  "dependencies": {
+    "@4keys/svg.draggable.js": "~2.2.2",
+    "ng-zorro-antd": "^7.3.3",
+    "ngx-color-picker": "^7.5.0",
+    "screenfull": "^4.2.0",
+    "svg.js": "^2.7.1",
+    "svg.select.js": "^3.0.1"
+  },
+  "description": "An project"
+}

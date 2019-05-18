@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button color="light" auto-hide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">
+            <ion-searchbar class="ion-text-left" [(ngModel)]="searchKey" (click)="showSearchbarPopup()"
+                           placeholder="请输入区域/道路/灯杆/配电柜名称"></ion-searchbar>
+            <ion-buttons slot="end">
+                <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+                    <ion-icon name="options"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button size="small" shape="round" color="light" (click)="notifications($event)">
+                <ion-icon name="notifications"></ion-icon>
+                <ion-badge color="danger" slot="end">2</ion-badge>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div id="map" style="width:100%; height: calc(100vh - 95px);"></div>
+    <div class="drawer" *ngIf="popup.state">
+        <app-region-popup *ngIf="popup.type=='region'" [regionId]="popup.id"
+                          (changeState)="popup.state=$event"></app-region-popup>
+        <app-road-popup *ngIf="popup.type=='road'" [roadId]="popup.id"
+                        (changeState)="popup.state=$event"></app-road-popup>
+        <app-pole-popup *ngIf="popup.type=='pole'" [poleId]="popup.id"
+                        (changeState)="popup.state=$event"></app-pole-popup>
+        <app-concent-popup *ngIf="popup.type=='concent'" [concentId]="popup.id"
+                           (changeState)="popup.state=$event"></app-concent-popup>
+    </div>
+</ion-content>
+<ion-fab vertical="top" horizontal="start" slot="fixed" style="top:130px;">
+    <ion-fab-button class="total-fab">
+        <ion-icon name="stats"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="right">
+        <ion-row>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="pole" color="primary"></ion-icon>
+                    <ion-label>灯具数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="default" color="primary"></ion-icon>
+                    <ion-label>故障数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="notifications"></ion-icon>
+                    <ion-label>报警数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="on-pole" color="primary"></ion-icon>
+                    <ion-label>开灯数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="adjust-pole" color="primary"></ion-icon>
+                    <ion-label>调光数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="shutdown" color="primary"></ion-icon>
+                    <ion-label>关灯数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="online" color="primary"></ion-icon>
+                    <ion-label>在线数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="offline-pole" color="primary"></ion-icon>
+                    <ion-label>离线数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+            <ion-col>
+                <ion-chip>
+                    <ion-icon name="cancert" color="primary"></ion-icon>
+                    <ion-label>配电柜数量</ion-label>
+                    <ion-note>11</ion-note>
+                </ion-chip>
+            </ion-col>
+        </ion-row>
+    </ion-fab-list>
+</ion-fab>
+
+<app-searchbar-popup [hideSearchbarPopup]="hideSearchbarPopup" id="searchbarPopup" class="hide"></app-searchbar-popup>

@@ -1,0 +1,83 @@
+<Card [full]="true" class="card-popup">
+    <CardHeader [title]="road?.roadName"
+                [thumb]="'../../../../assets/svg/ios-road.svg'"
+                [thumbStyle]="thumbStyle"
+                [extra]="extra">
+        <ng-template #extra>
+            <span (click)="closePopup()">
+                <ion-icon name="close"></ion-icon>
+            </span>
+        </ng-template>
+    </CardHeader>
+    <CardBody>
+        <div>
+            <ion-row class="row-info">
+                <ion-col size="6" size-sm>
+                    道路类型：<span>{{road?.roadType?.typeName}}</span>
+                </ion-col>
+                <ion-col size="6" size-sm>
+                    道路等级：<span>{{RoadGrade[road?.roadGrade]}}</span>
+                </ion-col>
+                <ion-col size="6" size-sm>
+                    道路长度：<span>{{road?.roadLength}}</span>
+                </ion-col>
+                <ion-col size="6" size-sm>
+                    备注：<span>{{road?.remark}}</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="row-info border-bottom">
+                <ion-col size="2" size-sm>
+                    <ion-icon name="cancert" class="mr-sm"></ion-icon>
+                    {{road?.concentAmount}}
+                </ion-col>
+                <ion-col size="2" size-sm>
+                    <ion-icon name="pole" class="mr-sm"></ion-icon>
+                    {{road?.poleAmount}}
+                </ion-col>
+                <ion-col size="2" size-sm>
+                    <ion-icon name="lamp" class="mr-sm"></ion-icon>
+                    {{road?.lampAmount}}
+                </ion-col>
+                <ion-col size="2" size-sm>
+                    <ion-icon name="notifications" class="mr-sm font-size-1rem"></ion-icon>
+                    {{road?.poleAmount}}
+                </ion-col>
+                <ion-col size="2" size-sm>
+                    <ion-icon name="default" class="mr-sm"></ion-icon>
+                    {{road?.lampAmount}}
+                </ion-col>
+            </ion-row>
+        </div>
+        <app-lumin-monitor [roadId]="road?.roadId"></app-lumin-monitor>
+    </CardBody>
+    <CardFooter [content]="footerContent">
+        <ng-template #footerContent>
+            <ion-row class="row-btns">
+                <ion-col size="3" size-sm (click)="concentDetail()">
+                    <ion-badge color="primary">
+                        <ion-icon name="cancert"></ion-icon>
+                    </ion-badge>
+                    <p>配电柜信息</p>
+                </ion-col>
+                <ion-col size="3" size-sm (click)="poleDetail()">
+                    <ion-badge color="secondary">
+                        <ion-icon name="pole"></ion-icon>
+                    </ion-badge>
+                    <p>灯杆信息</p>
+                </ion-col>
+                <!--<ion-col size="3" size-sm (click)="currentControl()">-->
+                    <!--<ion-badge color="success">-->
+                        <!--<ion-icon name="contrast"></ion-icon>-->
+                    <!--</ion-badge>-->
+                    <!--<p>实时控制</p>-->
+                <!--</ion-col>-->
+                <ion-col size="3" size-sm (click)="statistics()">
+                    <ion-badge color="warning">
+                        <ion-icon name="stats"></ion-icon>
+                    </ion-badge>
+                    <p>统计信息</p>
+                </ion-col>
+            </ion-row>
+        </ng-template>
+    </CardFooter>
+</Card>

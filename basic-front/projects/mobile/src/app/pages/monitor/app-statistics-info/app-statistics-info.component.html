@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="defaultHref" (click)="close()" color="secondary"></ion-back-button>
+        </ion-buttons>
+        <ion-title>统计信息</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <Accordion [accordion]="true"
+               [defaultActiveKey]="'0'"
+               [activeKey]="activeKey"
+               (onChange)="onChange($event)">
+        <AccordionPanel *ngFor="let item of accordions; let i = index;"
+                        [key]="i" [header]="item.title"
+                        [disabled]="item.inactive">
+            <List className="my-list">
+                <ListItem>
+                    <div echarts [options]="item.options" style="width: 100%;height: 200px"></div>
+                </ListItem>
+            </List>
+        </AccordionPanel>
+    </Accordion>
+</ion-content>

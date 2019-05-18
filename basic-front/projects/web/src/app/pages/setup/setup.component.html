@@ -1,0 +1,80 @@
+<nz-layout class="login-wrapper">
+    <nz-header class="login-header">
+        <div class="logo-img"></div>
+    </nz-header>
+    <nz-content>
+        <div nz-row>
+            <div nz-col nzSpan="12">&nbsp;</div>
+            <div nz-col nzSpan="12">
+                <div class="login-main">
+                    <div class="login-title">
+                        <h1>用户登录</h1>
+                        <nz-dropdown class="lanuage-dropdown">
+                            <a nz-dropdown>
+                                <img src="assets/images/flags/cn.png"> 中文 <i nz-icon type="down"></i>
+                            </a>
+                            <ul nz-menu nzSelectable>
+                                <li nz-menu-item>
+                                    <a><img src="assets/images/flags/cn.png" class="mr-xs">中文</a>
+                                </li>
+                                <li nz-menu-item>
+                                    <a><img src="assets/images/flags/us.png" class="mr-xs">英语</a>
+                                </li>
+                                <li nz-menu-item>
+                                    <a><img src="assets/images/flags/fr.png" class="mr-xs">法语</a>
+                                </li>
+                            </ul>
+                        </nz-dropdown>
+                    </div>
+
+                    <form nz-form class="login-form">
+                        <nz-form-item>
+                            <nz-form-control>
+                                <nz-input-group [nzSuffix]="suffixTemplate" [nzPrefix]="prefixTemplate">
+                                    <input type="text" nz-input placeholder="请输入用户名" #usernameInput [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+                                </nz-input-group>
+                                <ng-template #prefixTemplate>
+                                    <i nz-icon type="user"></i>
+                                </ng-template>
+                                <ng-template #suffixTemplate>
+                                    <i nz-icon type="close-circle" (click)="username = ''" *ngIf="username"></i>
+                                </ng-template>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-control>
+                                <nz-input-group [nzSuffix]="suffixTemplate1" [nzPrefix]="prefixTemplate1">
+                                    <input type="password" nz-input placeholder="请输入密码" #passwordInput [(ngModel)]="password" [ngModelOptions]="{standalone: true}"/>
+                                </nz-input-group>
+                                <ng-template #prefixTemplate1>
+                                    <i nz-icon type="key"></i>
+                                </ng-template>
+                                <ng-template #suffixTemplate1>
+                                    <i nz-icon type="close-circle" (click)="password = ''" *ngIf="password"></i>
+                                </ng-template>
+
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item class="mb-sm">
+                            <nz-form-control>
+                                <label nz-checkbox class="login-auto" [(ngModel)]="rememberMe" name="rememberMe">
+                                    <span>下次自动登录</span>
+                                </label>
+                                <a class="login-form-forgot" class="login-form-forgot">
+                                    <i nz-icon type="lock" class="mr-xs"></i>忘记密码？
+                                </a>
+                            </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-control>
+                                <button nz-button nzType="primary" (click)="completeSetup()" [nzLoading]="isLogining" [disabled]="!usernameInput.value" nzBlock>登录</button>
+                            </nz-form-control>
+                        </nz-form-item>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </nz-content>
+    <nz-footer class="login-footer">Copyright © 2018 智慧照明综合管理平台</nz-footer>
+</nz-layout>

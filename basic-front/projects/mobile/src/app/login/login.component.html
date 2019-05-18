@@ -1,0 +1,47 @@
+<ion-content padding class="animated fadeIn login auth-page login-page">
+    <ion-card>
+        <img src="/assets/imgs/login_bg.jpg" class="bg-img"/>
+        <div class="card-title ion-text-center">
+            <ion-text>
+                <img src="assets/imgs/logo1.png" />
+                <p>智慧照明综合管理平台</p>
+            </ion-text>
+        </div>
+        <div class="card-subtitle">
+            <form [formGroup]="loginForm" class="list-form">
+                <ion-item lines="none" class="login-item">
+                    <ion-label>
+                        <ion-icon name="user2"></ion-icon>
+                    </ion-label>
+                    <ion-input color="secondary" type="text" formControlName="username" placeholder="请输入您的用户名"></ion-input>
+                    <ion-note class="text08" *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">
+                        <ion-text color="warning">
+                            必填字段
+                        </ion-text>
+                    </ion-note>
+                </ion-item>
+                <ion-item lines="none" class="login-item">
+                    <ion-label>
+                        <ion-icon name="lock"></ion-icon>
+                    </ion-label>
+                    <ion-input color="secondary" type="password" formControlName="password" placeholder="请输入您的密码"></ion-input>
+                    <ion-note color="warning" class="text08" *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')">
+                        <ion-text color="warning">
+                            必填字段
+                        </ion-text>
+                    </ion-note>
+                </ion-item>
+                <ion-item lines="none" class="checkbox-item" mode="md">
+                    <ion-checkbox mode="md"></ion-checkbox>
+                    <ion-label>记住密码</ion-label>
+                    <!--<ion-text (click)="forgotPass()">忘记密码?</ion-text>-->
+                </ion-item>
+                <ion-item lines="none" class="login-btn">
+                    <ion-button (click)="logIn()" [disabled]="!loginForm.valid">
+                          登&nbsp;&nbsp;录
+                    </ion-button>
+                </ion-item>
+            </form>
+        </div>
+    </ion-card>
+</ion-content>

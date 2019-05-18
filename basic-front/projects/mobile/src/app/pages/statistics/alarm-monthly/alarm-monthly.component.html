@@ -1,0 +1,58 @@
+<ion-content class="report-content statistics-content">
+  <ion-list  class="common-list form-list mb-none">
+    <ion-item>
+      <ion-label>选择道路</ion-label>
+      <ion-select multiple="true" cancelText="取消" okText="确定"
+                  [(ngModel)]="selectedOptions"
+                  name="selectedOptions"
+                  (ngModelChange)="refreshData()">
+        <ion-select-option *ngFor="let c of optionData[selectedSearchType]" value="{{c.key}}">{{c.value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>选择日期</ion-label>
+      <ion-datetime display-format="YYYY-MM-DD" pickerFormat="YYYY MM DD" doneText="确定" cancelText="取消"  [(ngModel)]="searchDate"
+                    (ngModelChange)="refreshData()"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-card class="common-card">
+    <ion-card-header>
+      <ion-card-title>报警和故障曲线</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div echarts style="width:95%;height: 340px" [options]="chartOptions"></div>
+    </ion-card-content>
+  </ion-card>
+
+  <!--<ion-grid [innerHtml]="myHtml">
+  </ion-grid>-->
+
+    <ion-grid class="common-grid mt-sm">
+        <ion-row class="border-bottom">
+            <ion-col>名称</ion-col>
+            <ion-col>灯杆数</ion-col>
+            <ion-col>灯具数</ion-col>
+            <ion-col>报警</ion-col>
+            <ion-col>故障</ion-col>
+            <ion-col>详情</ion-col>
+        </ion-row>
+
+        <ion-row class="border-bottom"  *ngFor="let detail of data?.roadDayAlarmFaultVos">
+            <ion-col >{{detail.name}}</ion-col>
+            <ion-col >{{detail.poleTotal}}</ion-col>
+            <ion-col >{{detail.lampTotal}}</ion-col>
+            <ion-col >{{detail.alarmTotal}}</ion-col>
+            <ion-col >{{detail.faultTotal}}</ion-col>
+            <ion-col>
+                <a (click)="presentModal(detail)">
+                    <ion-badge color="secondary">
+                        <ion-icon name="md-more"></ion-icon>
+                    </ion-badge>
+                </a>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>

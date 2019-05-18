@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [defaultHref]="defaultHref" (click)="close()"></ion-back-button>
+        </ion-buttons>
+        <ion-title>实时控制</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <div *ngIf="pagination.content.length>0;else empty">
+            <ion-item-sliding *ngFor="let data of pagination.content;let i = index">
+                <ion-list class="common-list">
+                    <ion-item>
+                        <ion-label>
+                            <h5>
+                                <ion-icon name="bookmark"></ion-icon>
+                                灯杆编号：{{data.poleCode}}</h5>
+                            <h6>
+                                <span>物联卡号:{{data.simcard}}</span>
+                            </h6>
+                            <p>
+                                <span>数据更新时间：{{data.lampLastData?.createTime}}</span>
+                                <span class="ion-justify-content-end ion-float-end">灯具状态:{{data.lampLastData?.switchStatus}}</span>
+                            </p>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+                <ion-item-options side="end">
+                    <ion-item-option (click)="openAdjust(data)">详情/调光</ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </div>
+    </ion-list>
+    <ng-template #empty>
+        <div class="empty-note">
+            <ion-note class="ion-text-center">
+                <img src="assets/svg/empty.svg"/>
+                <p>暂无数据</p>
+            </ion-note>
+        </div>
+    </ng-template>
+    <Pagination [total]="pagination.pageSize" [current]="pagination.pageIndex" [locale]="locale"></Pagination>
+</ion-content>
+<div class="drawer" *ngIf="popup.state">
+    <app-app-lamp-adjust-luminance [lampId]="popup.id"
+                                   (changeState)="popup.state=$event"></app-app-lamp-adjust-luminance>
+</div>

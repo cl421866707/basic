@@ -1,0 +1,80 @@
+<ion-content class="report-content statistics-content">
+  <ion-list  class="common-list form-list">
+    <ion-item>
+      <ion-label>选择道路</ion-label>
+      <ion-select multiple="true" cancelText="取消" okText="确定"
+                  [(ngModel)]="selectedOptions"
+                  name="selectedOptions"
+                  (ngModelChange)="refreshData()">
+        <ion-select-option *ngFor="let c of optionData[selectedSearchType]" value="{{c.key}}">{{c.value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>选择日期</ion-label>
+      <ion-datetime display-format="YYYY-MM-DD" pickerFormat="YYYY MM DD" doneText="确定" cancelText="取消"  [(ngModel)]="searchDate"
+                    (ngModelChange)="refreshData()"></ion-datetime>
+    </ion-item>
+  </ion-list>
+  <div class="scroll-area">
+    <ion-grid>
+      <ion-row class="scroll-top">
+        <ion-col>名称</ion-col>
+        <ion-col>灯杆数量</ion-col>
+        <ion-col>灯具数量</ion-col>
+        <ion-col>驱动故障</ion-col>
+        <ion-col>灯具故障</ion-col>
+        <ion-col>线路断电</ion-col>
+        <ion-col>过载</ion-col>
+        <ion-col>欠载</ion-col>
+        <ion-col>过压</ion-col>
+        <ion-col>欠压</ion-col>
+        <ion-col>过流</ion-col>
+        <ion-col>欠流</ion-col>
+        <ion-col>温度过高</ion-col>
+        <ion-col>温度过低</ion-col>
+        <ion-col>报警合计</ion-col>
+        <ion-col>故障合计</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let data of tableData">
+        <ion-col>{{data.name}}</ion-col>
+        <ion-col>{{data.poleTotal}}</ion-col>
+        <ion-col>{{data.lampTotal}}</ion-col>
+        <ion-col>{{data.alarm1Total}}</ion-col>
+        <ion-col>{{data.alarm2Total}}</ion-col>
+        <ion-col>{{data.alarm3Total}}</ion-col>
+        <ion-col>{{data.alarm4Total}}</ion-col>
+        <ion-col>{{data.alarm5Total}}</ion-col>
+        <ion-col>{{data.alarm6Total}}</ion-col>
+        <ion-col>{{data.alarm7Total}}</ion-col>
+        <ion-col>{{data.alarm8Total}}</ion-col>
+        <ion-col>{{data.alarm9Total}}</ion-col>
+        <ion-col>{{data.alarm10Total}}</ion-col>
+        <ion-col>{{data.alarm11Total}}</ion-col>
+        <ion-col>{{data.alarmTotal}}</ion-col>
+        <ion-col>{{data.faultTotal}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-card class="common-card">
+    <ion-card-header>
+      <ion-card-title>报警分布</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div echarts style="width:90%;height: 240px" [options]="alarmOptions"></div>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card class="common-card">
+    <ion-card-header>
+      <ion-card-title>故障分布</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div echarts style="width:90%;height: 240px" [options]="faultOptions"></div>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

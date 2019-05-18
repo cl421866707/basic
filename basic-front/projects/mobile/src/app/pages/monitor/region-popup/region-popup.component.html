@@ -1,0 +1,68 @@
+<Card [full]="true" class="card-popup">
+    <CardHeader [title]="region?.regionName"
+                [thumb]="'../../../../assets/svg/ios-area.svg'"
+                [thumbStyle]="thumbStyle"
+                [extra]="extra">
+        <ng-template #extra>
+            <span (click)="closePopup()">
+                <ion-icon name="close"></ion-icon>
+            </span>
+        </ng-template>
+    </CardHeader>
+    <CardBody>
+        <div>
+            <ion-row class="row-info border-bottom">
+                <ion-col size="6" size-sm>
+                    区域面积：<span>{{region?.regionArea}}</span>
+                </ion-col>
+                <ion-col size="6" size-sm>
+                    备注：<span>{{region?.remark}}</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="row-info border-bottom">
+                <ion-col size="3" size-sm>
+                    <ion-icon name="pole" class="mr-sm"></ion-icon>
+                    {{region?.poleNum}}
+                </ion-col>
+                <ion-col size="3" size-sm>
+                    <ion-icon name="lamp" class="mr-sm"></ion-icon>
+                    {{region?.lampNum}}
+                </ion-col>
+                <ion-col size="3" size-sm>
+                    <ion-icon name="notifications" class="mr-sm font-size-1rem"></ion-icon>
+                    {{region?.poleNum}}
+                </ion-col>
+                <ion-col size="3" size-sm>
+                    <ion-icon name="default" class="mr-sm"></ion-icon>
+                    {{region?.lampNum}}
+                </ion-col>
+            </ion-row>
+        </div>
+        <app-lumin-monitor [regionId]="region?.regionId"></app-lumin-monitor>
+    </CardBody>
+    <CardFooter [content]="footerContent">
+        <ng-template #footerContent>
+            <ion-row class="row-btns">
+                <ion-col size="4" size-sm (click)="poleDetail()">
+                    <ion-badge color="secondary">
+                        <ion-icon name="pole"></ion-icon>
+                    </ion-badge>
+                    <p>灯杆信息</p>
+                </ion-col>
+                <!--<ion-col size="4" size-sm (click)="currentControl()">-->
+                    <!--<ion-badge color="success">-->
+                        <!--<ion-icon name="contrast"></ion-icon>-->
+                    <!--</ion-badge>-->
+                    <!--<p>实时控制</p>-->
+                <!--</ion-col>-->
+                <ion-col size="4" size-sm (click)="statistics()">
+                    <ion-badge color="warning">
+                        <ion-icon name="stats"></ion-icon>
+                    </ion-badge>
+                    <p>统计信息</p>
+                </ion-col>
+            </ion-row>
+        </ng-template>
+
+    </CardFooter>
+</Card>

@@ -1,0 +1,28 @@
+<Card [full]="true">
+    <CardHeader [title]="'搜索历史'" [extra]="extra">
+        <ng-template #extra>
+            <span (click)="close()">
+                <ion-icon name="close"></ion-icon>
+            </span>
+        </ng-template>
+    </CardHeader>
+    <CardBody>
+        <ion-list>
+            <ion-item lines="full">
+                <ion-label>搜索历史一</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label>搜索历史二</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label>搜索历史三</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label>搜索历史四</ion-label>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label>搜索历史五</ion-label>
+            </ion-item>
+        </ion-list>
+    </CardBody>
+</Card>

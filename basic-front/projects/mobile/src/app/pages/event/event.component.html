@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>事件报警</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <Tabs [activeTab]="index"
+          [page]="3"
+          (onChange)="onChange($event)"
+          (onTabClick)="onTabClick($event)">
+        <TabPane
+                style="display: flex; background-color: #fff; height: 100%;justify-content: center;align-items: center"
+                [title]="'控制操作事件'">
+            <div style="height: 100%; width: 100%">
+                <app-lamp-operate></app-lamp-operate>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'灯具报警事件'">
+            <div style="height: 100%; width: 100%">
+                <app-lamp-alarm></app-lamp-alarm>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'设备运行事件'">
+            <div style="height: 100%; width: 100%">
+                <app-lamp-motion></app-lamp-motion>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'通信链路事件'">
+            <div style="height: 100%; width: 100%">
+                <app-lamp-network></app-lamp-network>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'状态量变化事件'">
+            <div style="height: 100%; width: 100%">
+                <app-lamp-action></app-lamp-action>
+            </div>
+        </TabPane>
+        <TabPane
+                style="display: flex; background-color: #fff; align-items: center;justify-content: center;height: 100%;"
+                [title]="'设备遥测变化事件'">
+            <div style="height: 100%; width: 100%">
+                <app-lamp-telemetry></app-lamp-telemetry>
+            </div>
+        </TabPane>
+    </Tabs>
+</ion-content>

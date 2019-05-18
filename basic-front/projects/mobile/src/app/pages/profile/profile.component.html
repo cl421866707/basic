@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>个人中心</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item class="bg-profile">
+        <ion-avatar slot="start">
+            <img src="assets/img/avatar.jpeg" class="user-avatar">
+        </ion-avatar>
+        <ion-label>
+            <ion-text color="light">
+                <h2>
+                    <strong>admin</strong>
+                </h2>
+            </ion-text>
+            <ion-text color="tertiary">
+                <h3 class="text-white">
+                    firminoata@gmail.com
+                </h3>
+            </ion-text>
+            <ion-button icon-left size="small" shape="round" color="primary" (click)="editProfile()">
+                <ion-icon name="contact"></ion-icon>编辑信息
+            </ion-button>
+            <ion-button icon-left size="small" shape="round" color="secondary" (click)="logout()">
+                <ion-icon name="log-out"></ion-icon>退出
+            </ion-button>
+        </ion-label>
+    </ion-item>
+
+    <ion-list class="button-list">
+        <ion-item-group>
+            <ion-item-divider>通用</ion-item-divider>
+            <ion-item>
+                <ion-icon name="planet" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label color="dark">语言</ion-label>
+                <ion-select [(ngModel)]="lang">
+                    <ion-select-option *ngFor="let language of languages" [value]="language">{{language}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="notifications" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label class="label" color="dark"> 显示报警消息数 </ion-label>
+                <ion-toggle [(ngModel)]="enableNotifications" color="success"></ion-toggle>
+            </ion-item>
+        </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider>资产维护</ion-item-divider>
+            <ion-item detail="true" (click)="openMapEdit()">
+                <ion-icon name="area" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label color="dark">区域</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="road" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label color="dark">道路</ion-label>
+                <ion-select [(ngModel)]="currency">
+                    <ion-select-option *ngFor="let currency of currencies" [value]="currency">{{currency}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider>其他</ion-item-divider>
+            <!--<ion-item>
+                <ion-icon name="mail" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label class="label" color="dark">Enable Promotions</ion-label>
+                <ion-toggle [(ngModel)]="enablePromo"></ion-toggle>
+            </ion-item>-->
+            <ion-item>
+                <ion-icon name="list-box" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label class="label" color="dark">显示历史记录</ion-label>
+                <ion-toggle [(ngModel)]="enableHistory" color="success"></ion-toggle>
+            </ion-item>
+            <ion-item detail="true" (click)="openMapEdit()">
+                <ion-icon name="md-person" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label color="dark">关于我们</ion-label>
+            </ion-item>
+            <ion-item (click)="openMapEdit()">
+                <ion-icon name="cloud-download" slot="start" color="medium" size="small"></ion-icon>
+                <ion-label color="dark">在线升级</ion-label>
+            </ion-item>
+        </ion-item-group>
+    </ion-list>
+</ion-content>

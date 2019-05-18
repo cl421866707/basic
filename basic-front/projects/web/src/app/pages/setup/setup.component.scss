@@ -1,0 +1,119 @@
+//登录页
+.login-wrapper {
+    overflow: auto;
+    background: url(../../../assets/images/bg_login.jpg) center center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.login-header, .login-footer {
+    position: absolute;
+    width: 100%;
+    height: 149px;
+    left: 0;
+
+}
+
+.login-header {
+    top: 0;
+    z-index: 1000;
+    background: #015480 url(../../../assets/images/login-header-bg01.png) center center repeat-x;
+    .logo-img{
+        width: 100%;
+        height: 100%;
+        background: url(../../../assets/images/login-header-logo-new1.png) center center no-repeat;
+    }
+}
+
+.login-footer {
+    color:#e8e8e8;
+    text-align:center;
+    bottom: 0;
+    z-index: 999;
+    background: #015480 url(../../../assets/images/login-header-bg02.png) center center repeat-x;
+}
+
+.login-main {
+    position: absolute;
+    right: 45%;
+    top: 45%;
+    margin-top:45%;
+    transform: translate(0, -45%);
+    z-index: 999;
+    .login-title{
+        position: absolute;
+        top: 70px;
+        right: 120px;
+        width: 100%;
+        h1{
+            margin-left: 240px;
+            color: #8ecff0;
+            font-size: 24px;
+        }
+
+        .lanuage-dropdown{
+            float:right;
+            margin-top: -40px;
+        }
+        .ant-dropdown-link{
+            color: #8ecff0;
+        }
+    }
+    .login-form {
+        width: 510px;
+        height: 439px;
+        padding:120px;
+        border-radius: 3px;
+        border: 0px solid #a7a7a7;
+        box-shadow: 0px 0px 15px rgba(50, 50, 50, 0.2);
+        background: url(../../../assets/images/login-bg.png) left top no-repeat;
+        .login-auto span{
+            color: #8ecff0;
+        }
+
+        .login-form-forgot{
+            color: #8ecff0;
+            float:right;
+        }
+        input{
+            height: 40px;
+            color: #5bc0de;
+            background-color: #01113a;
+            border: 1px solid #172852;
+        }
+        i{
+            color: #5bc0de;
+        }
+        .anticon-close-circle {
+            cursor: pointer;
+            color: #ccc;
+            transition: color 0.3s;
+            font-size: 12px;
+        }
+
+        .anticon-close-circle:hover {
+            color: #999;
+        }
+
+        .anticon-close-circle:active {
+            color: #666;
+        }
+        button{
+            color: #fff;
+            background-color: #00BCD4;
+            border-color: #00BCD4;
+        }
+    }
+}
+@media (max-width: 1280px) {
+    .login-main {
+        right: 5%;
+    }
+}
+
+@media (max-width: 1366px) {
+    .login-main {
+        right: 10%;
+    }
+}

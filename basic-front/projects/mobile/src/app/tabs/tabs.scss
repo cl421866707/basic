@@ -1,0 +1,22 @@
+:host{
+    .svg-monitor{
+        font-size: 3.4rem;
+        margin: -0.5rem 0 -0.7rem 0;
+    }
+    .notifications{
+        font-size: 1.8rem;
+    }
+    .svg-statistics{
+        font-size: 1.6rem;
+        margin-top: 0.6rem;
+    }
+    .svg-profile{
+        font-size: 1.6rem;
+        margin-top: 0.6rem;
+    }
+    ion-tab-button[aria-selected='true']{
+        ion-icon,ion-label{
+            color: var(--ion-color-secondary);
+        }
+    }
+}

@@ -1,0 +1,176 @@
+<Card [full]="true" class="card-popup">
+    <CardHeader [title]="pole?.poleCode"
+                [thumb]="'../../../../assets/svg/ios-pole.svg'"
+                [thumbStyle]="thumbStyle"
+                [extra]="extra">
+        <ng-template #extra>
+            <span (click)="closePopup()">
+                <ion-icon name="close"></ion-icon>
+            </span>
+        </ng-template>
+    </CardHeader>
+    <CardBody>
+        <div>
+            <ion-row class="row-info border-bottom">
+                <ion-col size="6" size-sm>
+                    灯杆类型：<span>{{pole?.poleMold?.moldName}}</span>
+                </ion-col>
+                <ion-col size="6" size-sm>
+                    所属区域：<span>{{pole?.region?.regionName}}</span>
+                </ion-col>
+                <ion-col size="12" size-sm>
+                    所属道路：<span>{{pole?.road?.roadName}}</span>
+                </ion-col>
+                <ion-col size="12" size-sm>
+                    所属配电柜：<span>{{pole?.concent?.concentName}}</span>
+                </ion-col>
+            </ion-row>
+            <Accordion [accordion]="true"
+                       [defaultActiveKey]="'0'"
+                       [activeKey]="activeKey" class="common-accordion">
+                <AccordionPanel header="灯具列表-数量:{{pole?.lampAmount}}">
+                    <div>
+                        <Tabs [activeTab]="index"
+                              [page]="2"
+                              (onChange)="onChangeLamp($event)"
+                              (onTabClick)="onTabClick($event)">
+                            <TabPane *ngFor="let lampProfile of lampProfiles;let i = index"
+                                     class="tab-pane"
+                                     [title]="'灯具'+(i+1)+':序号'+lampProfile?.lampView?.lampSeq">
+                                <div style="height: 110px; width: 100%; background:#fff;" class="tab-content">
+                                    <div class="flex-container">
+                                        <Flex [wrap]="'wrap'">
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">网络状态：</label>
+                                                    <p class="detail">{{'暂无'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">物联卡号：</label>
+                                                    <p class="detail">{{lampProfile?.lampView?.simcard ? lampProfile?.lampView?.simcard : '-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                        </Flex>
+                                        <Flex [wrap]="'wrap'">
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">网络类型：</label>
+                                                    <p class="detail">{{lampProfile?.lampView?.networkType ? lampProfile?.lampView?.networkType : '-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">协议类型：</label>
+                                                    <p class="detail">{{lampProfile?.lampView?.protocolType ? lampProfile?.lampView?.protocolType : '-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                        </Flex>
+                                    </div>
+                                    <div class="flex-container">
+                                        <Flex [wrap]="'wrap'">
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">电压(v)：</label>
+                                                    <p class="detail">{{ '-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">电流(mA)：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                        </Flex>
+                                        <Flex [wrap]="'wrap'">
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">温度(℃)：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">功率(W)：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                        </Flex>
+                                        <Flex [wrap]="'wrap'">
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">功率因素：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">累计电量：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                        </Flex>
+                                        <Flex [wrap]="'wrap'">
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">亮灯时长：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                            <FlexItem>
+                                                <div class="content-item">
+                                                    <label class="term">更新时间：</label>
+                                                    <p class="detail">{{'-'}}</p>
+                                                </div>
+                                            </FlexItem>
+                                        </Flex>
+                                    </div>
+
+                                </div>
+                            </TabPane>
+                        </Tabs>
+
+                        <div class="control-part">
+                            <ion-list>
+                                <ion-item>
+                                    <ion-range color="danger" pin="true" max="100" min="0" [value]="rangeVlaue"
+                                               [(ngModel)]="rangeVlaue" class="common-range"></ion-range>
+                                </ion-item>
+                                <ion-row>
+                                    <ion-col size="9">
+                                        <ion-button size="small" class="button-left" (click)="adjustButton(0)">关
+                                        </ion-button>
+                                        <ion-button size="small" color="secondary" class="button-left"
+                                                    (click)="adjustButton(30)">30
+                                        </ion-button>
+                                        <ion-button size="small" color="secondary" class="button-left"
+                                                    (click)="adjustButton(50)">50
+                                        </ion-button>
+                                        <ion-button size="small" color="secondary" class="button-left"
+                                                    (click)="adjustButton(80)">80
+                                        </ion-button>
+                                        <ion-button size="small" class="button-left" (click)="adjustButton(100)">开
+                                        </ion-button>
+                                    </ion-col>
+                                    <ion-col size="3">
+                                        <ion-button size="small" (click)="showConfirm()">调光</ion-button>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-list>
+                        </div>
+                    </div>
+                </AccordionPanel>
+            </Accordion>
+        </div>
+    </CardBody>
+    <!--    <CardFooter [content]="footerContent" [extra]="footerExtra">-->
+    <CardFooter [content]="footerContent">
+        <ng-template #footerContent>
+
+        </ng-template>
+        <!--        <ng-template #footerExtra>-->
+        <!--            <div>extra footer content</div>-->
+        <!--        </ng-template>-->
+    </CardFooter>
+</Card>

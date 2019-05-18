@@ -1,0 +1,16 @@
+<ion-content>
+  <h1 class="title">{{detail.name}}
+    <a (click)="dismissView()">关闭</a></h1>
+
+  <ion-grid class="common-grid mt-sm">
+    <ion-row class="border-bottom">
+      <ion-col>日期</ion-col>
+      <ion-col>故障数</ion-col>
+    </ion-row>
+
+    <ion-row class="border-bottom"  *ngFor="let data of detail.roadDayFaultDetailVos">
+      <ion-col >{{data.dayOfMonth}}</ion-col>
+      <ion-col >{{data.faultTotal}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

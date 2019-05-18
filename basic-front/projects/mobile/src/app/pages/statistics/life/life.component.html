@@ -1,0 +1,44 @@
+<ion-list class="common-list form-list">
+  <ion-item>
+    <ion-label>选择道路</ion-label>
+    <ion-select multiple="true" cancelText="取消" okText="确定" [(ngModel)]="selectedOptions" name="selectedOptions" (ngModelChange)="refreshData()">
+      <ion-select-option *ngFor="let c of optionData[selectedSearchType]" selected="true" value="{{c.key}}">{{c.value}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<div class="scroll-area">
+  <ion-grid>
+    <ion-row class="scroll-top">
+      <ion-col width="180">名称</ion-col>
+      <ion-col>灯杆数</ion-col>
+      <ion-col>灯具数</ion-col>
+      <ion-col>20%</ion-col>
+      <ion-col>40%</ion-col>
+      <ion-col>60%</ion-col>
+      <ion-col>80%</ion-col>
+      <ion-col>100%</ion-col>
+      <ion-col>>100%</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let data of tableData">
+      <ion-col width="180">{{data.name}}</ion-col>
+      <ion-col>{{data.poleTotal}}</ion-col>
+      <ion-col>{{data.lampTotal}}</ion-col>
+      <ion-col>{{data.belowTwentyQty}}</ion-col>
+      <ion-col>{{data.belowFortyQty}}</ion-col>
+      <ion-col>{{data.belowSixtyQty}}</ion-col>
+      <ion-col>{{data.belowEightyQty}}</ion-col>
+      <ion-col>{{data.belowHundredQty}}</ion-col>
+      <ion-col>{{data.overHundredQty}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<ion-card class="common-card">
+  <ion-card-header>
+    <ion-card-title>灯具寿命分布图</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div echarts style="width:90%;height: 300px" [options]="options"></div>
+  </ion-card-content>
+</ion-card>
+
+

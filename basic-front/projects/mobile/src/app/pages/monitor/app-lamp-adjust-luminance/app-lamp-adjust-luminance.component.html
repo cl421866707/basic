@@ -1,0 +1,112 @@
+<WingBlank [size]="'lg'">
+    <Card>
+        <CardHeader [title]="'调光控制'"
+                    [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                    [thumbStyle]="thumbStyle"
+                    [extra]="extra">
+            <ng-template #extra>
+                <span (click)="closePopup()">
+                    <ion-icon name="close"></ion-icon>
+                </span>
+            </ng-template>
+        </CardHeader>
+        <CardBody>
+            <div style="height: 150px; width: 100%" class="tab-content">
+                <div class="flex-container">
+                    <Flex [wrap]="'wrap'">
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">电压(v):</label>
+                                <p class="detail">{{ '-'}}</p>
+                            </div>
+                        </FlexItem>
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">电流(mA):</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                    </Flex>
+                    <Flex [wrap]="'wrap'">
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">温度(℃):</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">功率(W):</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                    </Flex>
+                    <Flex [wrap]="'wrap'">
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">功率因素:</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">累计电量:</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                    </Flex>
+                    <Flex [wrap]="'wrap'">
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">亮灯时长:</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                        <FlexItem>
+                            <div class="content-item">
+                                <label class="term">更新时间:</label>
+                                <p class="detail">{{'-'}}</p>
+                            </div>
+                        </FlexItem>
+                    </Flex>
+                </div>
+
+            </div>
+            <div class="control-part">
+                <ion-list>
+                    <ion-item>
+                        <ion-range color="danger" pin="true" max="100" min="0" [value]="rangeVlaue"
+                                   [(ngModel)]="rangeVlaue"></ion-range>
+                    </ion-item>
+                    <ion-row>
+                        <ion-col size="9">
+                            <ion-button size="small" class="button-left" (click)="adjustButton(0)">关
+                            </ion-button>
+                            <ion-button size="small" color="secondary" class="button-left"
+                                        (click)="adjustButton(30)">30
+                            </ion-button>
+                            <ion-button size="small" color="secondary" class="button-left"
+                                        (click)="adjustButton(50)">50
+                            </ion-button>
+                            <ion-button size="small" color="secondary" class="button-left"
+                                        (click)="adjustButton(80)">80
+                            </ion-button>
+                            <ion-button size="small" class="button-left" (click)="adjustButton(100)">开
+                            </ion-button>
+                        </ion-col>
+                        <ion-col size="3">
+                            <ion-button size="small" (click)="showConfirm()">调光</ion-button>
+                        </ion-col>
+                    </ion-row>
+                </ion-list>
+            </div>
+        </CardBody>
+<!--        <CardFooter [content]="'footer content'" [extra]="footerExtra">-->
+<!--            <ng-template #footerExtra>-->
+<!--                <div>-->
+<!--                    -->
+<!--                </div>-->
+<!--            </ng-template>-->
+<!--        </CardFooter>-->
+    </Card>
+</WingBlank>

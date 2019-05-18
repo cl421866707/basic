@@ -1,0 +1,173 @@
+:host {
+    ion-title {
+        padding-left: 2.65rem;
+        padding-right: 3.4rem;
+    }
+
+    ion-fab {
+        .total-fab {
+            --border-radius: 4px !important;
+            width: 2.1rem;
+            height: 2.1rem;
+            --color: var(--ion-color-dark);
+            --background: var(--ion-color-primary-contrast);
+            --background-activated: var(--ion-color-primary-contrast);
+            --border-width: 0.1rem;
+            --border-style: solid;
+            --border-color: rgba(0, 0, 0, 0.23);
+            font-size: 0.8rem;
+
+            ion-icon {
+                font-size: 1.4rem;
+                color: var(--ion-color-danger-tint);
+            }
+
+        }
+
+        ion-row {
+            position: absolute;
+            left: 2.8rem;
+            top: -4rem;
+            background: #fff;
+            border-radius: 4px;
+            width: calc(100vw - 70px);
+
+            ion-col {
+                flex-grow: inherit;
+                padding: 0;
+
+                ion-chip {
+                    --background: var(--ion-color-primary-contrast);
+                    border-radius: 5px;
+
+                    ion-label {
+                        white-space: nowrap;
+                        font-size: 0.8rem;
+                    }
+
+                    ion-icon {
+                        font-size: 0.8rem;
+                    }
+
+                    ion-note {
+                        margin-left: 0.3rem;
+                    }
+                }
+
+                &:nth-of-type(1) {
+                    ion-icon {
+                        --ion-color-base: #2196F3 !important;
+                    }
+
+                    ion-note {
+                        color: #2196F3 !important;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    ion-icon {
+                        --ion-color-base: #D32F2F !important;
+                    }
+
+                    ion-note {
+                        color: #D32F2F !important;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    ion-icon {
+                        --ion-color-base: #F44336 !important;
+                    }
+
+                    ion-note {
+                        color: #F44336 !important;
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    ion-icon {
+                        --ion-color-base: #4CAF50 !important;
+                    }
+
+                    ion-note {
+                        color: #4CAF50 !important;
+                    }
+                }
+
+                &:nth-of-type(5) {
+                    ion-icon {
+                        --ion-color-base: #FF9800 !important;
+                    }
+
+                    ion-note {
+                        color: #FF9800 !important;
+                    }
+                }
+
+                &:nth-of-type(6) {
+                    ion-icon {
+                        --ion-color-base: #000000 !important;
+                    }
+
+                    ion-note {
+                        color: #000000 !important;
+                    }
+                }
+
+                &:nth-of-type(7) {
+                    ion-icon {
+                        --ion-color-base: #673AB7 !important;
+                    }
+
+                    ion-note {
+                        color: #673AB7 !important;
+                    }
+                }
+
+                &:nth-of-type(8) {
+                    ion-icon {
+                        --ion-color-base: #757373 !important;
+                    }
+
+                    ion-note {
+                        color: #757373 !important;
+                    }
+                }
+
+                &:nth-of-type(9) {
+                    ion-icon {
+                        --ion-color-base: #03A9F4 !important;
+                    }
+
+                    ion-note {
+                        color: #03A9F4 !important;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+
+    .drawer {
+        background-color: #fff;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        min-height: 100px;
+        z-index: 9999;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .show {
+        display: block;
+        z-index: 999;
+    }
+}
+

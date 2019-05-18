@@ -1,0 +1,28 @@
+<ion-list *ngIf="pagination.content.length>0;else empty" class="common-list mt-sm">
+    <!--    <ion-list-header>-->
+    <!--        <ion-label>控制操作事件</ion-label>-->
+    <!--    </ion-list-header>-->
+    <ion-item-sliding *ngFor="let data of pagination.content;let i = index">
+        <ion-item>
+            <ion-label>
+                <h5><ion-icon name="bookmark"></ion-icon>事件名称：{{data.eventName}}</h5>
+                <h6>灯具物联卡号:{{data.lamp?.simcard}}</h6>
+                <h6>事件类型：{{MotionType[data.motionType]}}</h6>
+                <p>
+                    <span>报警时间:{{data.motionTime}}</span>
+                </p>
+            </ion-label>
+        </ion-item>
+        <ion-item-options side="end">
+            <ion-item-option (click)="detail(data)">详情</ion-item-option>
+        </ion-item-options>
+    </ion-item-sliding>
+</ion-list>
+<ng-template #empty>
+    <div class="empty-note">
+        <ion-note class="ion-text-center">
+            <img src="assets/svg/empty.svg" />
+            <p>暂无数据</p>
+        </ion-note>
+    </div>
+</ng-template>

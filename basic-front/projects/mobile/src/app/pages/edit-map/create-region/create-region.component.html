@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="cancel();">取消</ion-button>
+        </ion-buttons>
+        <ion-title>新建区域</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="submitForm();">保存</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list [formGroup]="formGroup">
+        <ion-item>
+            <ion-label>区域名称
+                <ion-text color="danger">*</ion-text>
+            </ion-label>
+            <ion-input type="text" formControlName="regionName" placeholder="请输入区域名称"></ion-input>
+            <ion-note *ngIf="formGroup.controls['regionName'].invalid && formGroup.controls['regionName'].dirty"
+                      color="danger">{{ formGroup.controls['regionName'].errors|errorMessage}}
+            </ion-note>
+        </ion-item>
+
+    </ion-list>
+</ion-content>
