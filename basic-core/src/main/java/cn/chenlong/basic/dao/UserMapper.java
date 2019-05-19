@@ -2,9 +2,8 @@ package cn.chenlong.basic.dao;
 
 import cn.chenlong.basic.model.User;
 import cn.chenlong.basic.model.UserExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     long countByExample(UserExample example);

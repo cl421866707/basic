@@ -565,413 +565,63 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeIsNull() {
-            addCriterion("delete_time is null");
+        public Criteria andEnabledIsNull() {
+            addCriterion("enabled is null");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeIsNotNull() {
-            addCriterion("delete_time is not null");
+        public Criteria andEnabledIsNotNull() {
+            addCriterion("enabled is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeEqualTo(Date value) {
-            addCriterion("delete_time =", value, "deleteTime");
+        public Criteria andEnabledEqualTo(Boolean value) {
+            addCriterion("enabled =", value, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeNotEqualTo(Date value) {
-            addCriterion("delete_time <>", value, "deleteTime");
+        public Criteria andEnabledNotEqualTo(Boolean value) {
+            addCriterion("enabled <>", value, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeGreaterThan(Date value) {
-            addCriterion("delete_time >", value, "deleteTime");
+        public Criteria andEnabledGreaterThan(Boolean value) {
+            addCriterion("enabled >", value, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("delete_time >=", value, "deleteTime");
+        public Criteria andEnabledGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("enabled >=", value, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeLessThan(Date value) {
-            addCriterion("delete_time <", value, "deleteTime");
+        public Criteria andEnabledLessThan(Boolean value) {
+            addCriterion("enabled <", value, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeLessThanOrEqualTo(Date value) {
-            addCriterion("delete_time <=", value, "deleteTime");
+        public Criteria andEnabledLessThanOrEqualTo(Boolean value) {
+            addCriterion("enabled <=", value, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeIn(List<Date> values) {
-            addCriterion("delete_time in", values, "deleteTime");
+        public Criteria andEnabledIn(List<Boolean> values) {
+            addCriterion("enabled in", values, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeNotIn(List<Date> values) {
-            addCriterion("delete_time not in", values, "deleteTime");
+        public Criteria andEnabledNotIn(List<Boolean> values) {
+            addCriterion("enabled not in", values, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeBetween(Date value1, Date value2) {
-            addCriterion("delete_time between", value1, value2, "deleteTime");
+        public Criteria andEnabledBetween(Boolean value1, Boolean value2) {
+            addCriterion("enabled between", value1, value2, "enabled");
             return (Criteria) this;
         }
 
-        public Criteria andDeleteTimeNotBetween(Date value1, Date value2) {
-            addCriterion("delete_time not between", value1, value2, "deleteTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1IsNull() {
-            addCriterion("backup1 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1IsNotNull() {
-            addCriterion("backup1 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1EqualTo(String value) {
-            addCriterion("backup1 =", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1NotEqualTo(String value) {
-            addCriterion("backup1 <>", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1GreaterThan(String value) {
-            addCriterion("backup1 >", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1GreaterThanOrEqualTo(String value) {
-            addCriterion("backup1 >=", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1LessThan(String value) {
-            addCriterion("backup1 <", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1LessThanOrEqualTo(String value) {
-            addCriterion("backup1 <=", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1Like(String value) {
-            addCriterion("backup1 like", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1NotLike(String value) {
-            addCriterion("backup1 not like", value, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1In(List<String> values) {
-            addCriterion("backup1 in", values, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1NotIn(List<String> values) {
-            addCriterion("backup1 not in", values, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1Between(String value1, String value2) {
-            addCriterion("backup1 between", value1, value2, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup1NotBetween(String value1, String value2) {
-            addCriterion("backup1 not between", value1, value2, "backup1");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2IsNull() {
-            addCriterion("backup2 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2IsNotNull() {
-            addCriterion("backup2 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2EqualTo(String value) {
-            addCriterion("backup2 =", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2NotEqualTo(String value) {
-            addCriterion("backup2 <>", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2GreaterThan(String value) {
-            addCriterion("backup2 >", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2GreaterThanOrEqualTo(String value) {
-            addCriterion("backup2 >=", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2LessThan(String value) {
-            addCriterion("backup2 <", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2LessThanOrEqualTo(String value) {
-            addCriterion("backup2 <=", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2Like(String value) {
-            addCriterion("backup2 like", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2NotLike(String value) {
-            addCriterion("backup2 not like", value, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2In(List<String> values) {
-            addCriterion("backup2 in", values, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2NotIn(List<String> values) {
-            addCriterion("backup2 not in", values, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2Between(String value1, String value2) {
-            addCriterion("backup2 between", value1, value2, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup2NotBetween(String value1, String value2) {
-            addCriterion("backup2 not between", value1, value2, "backup2");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3IsNull() {
-            addCriterion("backup3 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3IsNotNull() {
-            addCriterion("backup3 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3EqualTo(String value) {
-            addCriterion("backup3 =", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3NotEqualTo(String value) {
-            addCriterion("backup3 <>", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3GreaterThan(String value) {
-            addCriterion("backup3 >", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3GreaterThanOrEqualTo(String value) {
-            addCriterion("backup3 >=", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3LessThan(String value) {
-            addCriterion("backup3 <", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3LessThanOrEqualTo(String value) {
-            addCriterion("backup3 <=", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3Like(String value) {
-            addCriterion("backup3 like", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3NotLike(String value) {
-            addCriterion("backup3 not like", value, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3In(List<String> values) {
-            addCriterion("backup3 in", values, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3NotIn(List<String> values) {
-            addCriterion("backup3 not in", values, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3Between(String value1, String value2) {
-            addCriterion("backup3 between", value1, value2, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup3NotBetween(String value1, String value2) {
-            addCriterion("backup3 not between", value1, value2, "backup3");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4IsNull() {
-            addCriterion("backup4 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4IsNotNull() {
-            addCriterion("backup4 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4EqualTo(String value) {
-            addCriterion("backup4 =", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4NotEqualTo(String value) {
-            addCriterion("backup4 <>", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4GreaterThan(String value) {
-            addCriterion("backup4 >", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4GreaterThanOrEqualTo(String value) {
-            addCriterion("backup4 >=", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4LessThan(String value) {
-            addCriterion("backup4 <", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4LessThanOrEqualTo(String value) {
-            addCriterion("backup4 <=", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4Like(String value) {
-            addCriterion("backup4 like", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4NotLike(String value) {
-            addCriterion("backup4 not like", value, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4In(List<String> values) {
-            addCriterion("backup4 in", values, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4NotIn(List<String> values) {
-            addCriterion("backup4 not in", values, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4Between(String value1, String value2) {
-            addCriterion("backup4 between", value1, value2, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup4NotBetween(String value1, String value2) {
-            addCriterion("backup4 not between", value1, value2, "backup4");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5IsNull() {
-            addCriterion("backup5 is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5IsNotNull() {
-            addCriterion("backup5 is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5EqualTo(String value) {
-            addCriterion("backup5 =", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5NotEqualTo(String value) {
-            addCriterion("backup5 <>", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5GreaterThan(String value) {
-            addCriterion("backup5 >", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5GreaterThanOrEqualTo(String value) {
-            addCriterion("backup5 >=", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5LessThan(String value) {
-            addCriterion("backup5 <", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5LessThanOrEqualTo(String value) {
-            addCriterion("backup5 <=", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5Like(String value) {
-            addCriterion("backup5 like", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5NotLike(String value) {
-            addCriterion("backup5 not like", value, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5In(List<String> values) {
-            addCriterion("backup5 in", values, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5NotIn(List<String> values) {
-            addCriterion("backup5 not in", values, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5Between(String value1, String value2) {
-            addCriterion("backup5 between", value1, value2, "backup5");
-            return (Criteria) this;
-        }
-
-        public Criteria andBackup5NotBetween(String value1, String value2) {
-            addCriterion("backup5 not between", value1, value2, "backup5");
+        public Criteria andEnabledNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("enabled not between", value1, value2, "enabled");
             return (Criteria) this;
         }
     }
