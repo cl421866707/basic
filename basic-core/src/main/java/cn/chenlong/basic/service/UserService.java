@@ -16,6 +16,22 @@ public interface UserService {
     User findUserByUsername(String userName);
 
     /**
+     * 根据账户名查询账户信息（包括角色信息）
+     *
+     * @param userName
+     * @return
+     */
+    User findUserByUsernameFetchRoles(String userName);
+
+    /**
+     * 根据账户名查询账户信息（包括角色信息、权限信息）
+     *
+     * @param userName
+     * @return
+     */
+    User findUserByUsernameFetchRolesAndPerms(String userName);
+
+    /**
      * 根据用户ID查询用户角色
      *
      * @param user

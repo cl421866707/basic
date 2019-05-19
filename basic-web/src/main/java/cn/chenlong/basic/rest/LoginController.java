@@ -32,26 +32,9 @@ public class LoginController {
     public User testUser() {
         log.info("开始测试获取用户");
 
-        User user = userService.findUserByUsername("admin");
+        User user = userService.findUserByUsernameFetchRolesAndPerms("admin");
 
-        List<Role> roles = this.userService.getRolesByUser(user);
-
-        roles.forEach(role -> {
-            role.setPerms(this.roleService.getPermsByRole(role));
-        });
-
-        user.setRoles(roles);
-
-//        List<Roles> rolesByUserId = userService.getRolesByUser(user);
-//        List<Perms> permsByUser = userService.getPermsByUser(user);
-//
-//        for (Roles roles : rolesByUserId) {
-//            System.out.println(roles);
-//        }
-//
-//        for (Perms perms : permsByUser) {
-//            System.out.println(perms);
-//        }
+        System.out.println("用户信息：\n" + user);
 
         log.info("获取用户成功");
 
