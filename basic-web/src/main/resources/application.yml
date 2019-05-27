@@ -1,0 +1,8 @@
+spring:
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .html
+shiro:
+  loginUrl: /security/login
+  successUrl: /security/success

@@ -1,34 +1,55 @@
 package cn.chenlong.basic.rest;
 
-import cn.chenlong.basic.model.Role;
 import cn.chenlong.basic.model.User;
-import cn.chenlong.basic.service.RoleService;
 import cn.chenlong.basic.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @Slf4j
-@RestController
+@Controller
 @RequestMapping("/security")
 public class LoginController {
 
     @Resource
     private UserService userService;
 
-    @Resource
-    private RoleService roleService;
+    @GetMapping("{page}")
+    public String toPage(@PathVariable String page) {
+        log.info("进入页面跳转器：" + page);
+        return page;
+    }
 
-    @GetMapping("login")
-    public String login() {
-        return "登陆";
+//    @TargetDataSource(name = "ds1")
+    @PostMapping("login")
+    public String login(User user) {
+        Subject currentUser = SecurityUtils.getSubject();
+        if (!currentUser.isAuthenticated()) {
+            //collect user principals and credentials in a gui specific manner
+            //such as username/password html form, X509 certificate, OpenID, etc.
+            //We'll use the username/password example here since it is the most common.
+            //(do you know what movie this is from? ;)
+            UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
+            //this is all you have to do to support 'remember me' (no config - built in!):
+            token.setRememberMe(true);
+            currentUser.login(token);
+            log.info("User [" + currentUser.getPrincipal() + "] logged in successfully.");
+        }
+        return "redirect:success";
+    }
+
+    @GetMapping("logout")
+    public String logout() {
+        return "redirect:login";
     }
 
     @GetMapping("user")
+    @ResponseBody
     public User testUser() {
         log.info("开始测试获取用户");
 

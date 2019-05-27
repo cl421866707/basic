@@ -21,7 +21,6 @@ import java.util.Set;
  */
 public class CustomRealm extends AuthorizingRealm {
 
-
     @Resource
     private UserService userService;
 
@@ -29,9 +28,12 @@ public class CustomRealm extends AuthorizingRealm {
     {
         //设置用于匹配密码的CredentialsMatcher
         HashedCredentialsMatcher hashMatcher = new HashedCredentialsMatcher();
+        //指定加密算法
         hashMatcher.setHashAlgorithmName(Sha256Hash.ALGORITHM_NAME);
         hashMatcher.setStoredCredentialsHexEncoded(false);
+        //加密次数
         hashMatcher.setHashIterations(1024);
+        //将此HASH加密匹配器交给AuthorizingRealm
         this.setCredentialsMatcher(hashMatcher);
     }
 
@@ -93,7 +95,9 @@ public class CustomRealm extends AuthorizingRealm {
             throw new UnknownAccountException("No account found for admin [" + username + "]");
         }
 
+        //默认使用简单加密
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(userDB, userDB.getUserPassword(), getName());
+        //如果用户有盐值，添加加密盐值：结果：用户密码一致，加密后的密文也不同
         if (userDB.getSalt() != null) {
             info.setCredentialsSalt(ByteSource.Util.bytes(userDB.getSalt()));
         }

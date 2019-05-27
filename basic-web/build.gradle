@@ -27,6 +27,8 @@ dependencies {
     compile('com.github.shihyuho:jackson-dynamic-filter-spring-boot-starter:1.0.1')
     runtimeOnly 'mysql:mysql-connector-java'
     compile 'org.apache.shiro:shiro-spring-boot-web-starter:1.4.0'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.5.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.1.5.RELEASE'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

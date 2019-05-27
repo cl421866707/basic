@@ -2,6 +2,10 @@ package cn.chenlong.basic.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.ShiroException;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.UnauthenticatedException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.http.HttpStatus;
@@ -41,5 +45,29 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ResponseBody
     public ResponseEntity page403() {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("用户没有访问权限");
+    }
+
+    @ExceptionHandler(UnknownAccountException.class)
+    @ResponseBody
+    public ResponseEntity unknownAccount() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("未知账户");
+    }
+
+    @ExceptionHandler(IncorrectCredentialsException.class)
+    @ResponseBody
+    public ResponseEntity wrongPassword() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("密码错误");
+    }
+
+    @ExceptionHandler(LockedAccountException.class)
+    @ResponseBody
+    public ResponseEntity lockedAccount() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("账户已被锁定");
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    @ResponseBody
+    public ResponseEntity authenticationException() {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("登陆异常");
     }
 }

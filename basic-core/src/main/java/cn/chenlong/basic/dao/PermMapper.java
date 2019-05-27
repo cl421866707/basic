@@ -2,10 +2,10 @@ package cn.chenlong.basic.dao;
 
 import cn.chenlong.basic.model.Perm;
 import cn.chenlong.basic.model.PermExample;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 
 public interface PermMapper {
     long countByExample(PermExample example);
