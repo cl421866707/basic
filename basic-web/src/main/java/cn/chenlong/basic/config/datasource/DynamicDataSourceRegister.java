@@ -34,21 +34,28 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
     @Override
     public void setEnvironment(Environment environment) {
         initDefaultDataSource(environment);
-        initslaveDataSources(environment);
+        initSlaveDataSources(environment);
     }
 
+    /**
+     * 初始化默认数据源
+     * @param env
+     */
     private void initDefaultDataSource(Environment env) {
         // 读取主数据源
         Map<String, Object> dsMap = new HashMap<>();
-        dsMap.put("driver", env.getProperty("spring.datasource.driver"));
+        dsMap.put("driver", env.getProperty("spring.datasource.driver-class-name"));
         dsMap.put("url", env.getProperty("spring.datasource.url"));
         dsMap.put("username", env.getProperty("spring.datasource.username"));
         dsMap.put("password", env.getProperty("spring.datasource.password"));
         defaultDataSource = buildDataSource(dsMap);
     }
 
-
-    private void initslaveDataSources(Environment env) {
+    /**
+     * 初始化备用数据源
+     * @param env
+     */
+    private void initSlaveDataSources(Environment env) {
         // 读取配置文件获取更多数据源
         String dsPrefixs = env.getProperty("slave.datasource.names");
         for (String dsPrefix : dsPrefixs.split(",")) {
@@ -86,7 +93,7 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         log.info("Dynamic DataSource Registry");
     }
 
-    public DataSource buildDataSource(Map<String, Object> dataSourceMap) {
+    private DataSource buildDataSource(Map<String, Object> dataSourceMap) {
         try {
             Object type = dataSourceMap.get("type");
             if (type == null) {
